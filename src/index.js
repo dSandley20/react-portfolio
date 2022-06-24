@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import KitchenSink from './routes/KitchenSink';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+    <Routes>
+      <Route path='/' element={<App/>}/>
+      <Route path='/kitchen-sink' element={<KitchenSink/>}/>
+    </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
