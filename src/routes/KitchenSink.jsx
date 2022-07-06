@@ -7,7 +7,7 @@ import { Grid, Item } from "@mui/material";
 export default function KitchenSink() {
   return (
     <>
-      <NavBar />
+      {/* <NavBar />
 
       <Grid container spacing={4}>
         <Grid item xs={4} sx={{ width: "30%" }}>
@@ -34,9 +34,11 @@ export default function KitchenSink() {
             }
           />
         </Grid>
-      </Grid>
+      </Grid> */}
 
-      <ContactMe />
+      {/* <ContactMe /> */}
+
+      <Socials />
     </>
   );
 }
