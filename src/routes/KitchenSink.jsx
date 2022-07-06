@@ -9,12 +9,16 @@ export default function KitchenSink() {
     <>
       <NavBar />
 
-      <DisplayCard
-        title={"FireShip"}
-        text={
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, asperiores."
-        }
-      />
+      <Grid container spacing={2}>
+        <Grid item spacing={4}>
+          <DisplayCard
+            title={"FireShip"}
+            text={
+              "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, asperiores."
+            }
+          />
+        </Grid>
+      </Grid>
 
       <ContactMe />
     </>
