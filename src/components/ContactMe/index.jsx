@@ -2,15 +2,17 @@ import { Box } from "@mui/system";
 import { Editor } from "react-draft-wysiwyg";
 import "../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { container } from "./styles";
-import { EditorState, convertFromRaw, convertToRaw } from "draft-js";
-import React, { useState, useEffect } from "react";
+import { EditorState } from "draft-js";
+import React, { useState } from "react";
 import { stateToHTML } from "draft-js-export-html";
-import { Button } from "@mui/material";
+import { Button, Snackbar, IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 export default function ContactMe() {
   var editorState = EditorState.createEmpty();
   const [content, setContent] = useState(editorState);
   const [isDisabled, setIsDisabled] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const updateContent = (editorState) => {
     setContent(editorState);
@@ -22,7 +24,14 @@ export default function ContactMe() {
 
   const emailMe = () => {
     //TODO send to API to email myself
-    alert("Sent Email");
+    setIsOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setIsOpen(false);
   };
 
   return (
@@ -43,6 +52,13 @@ export default function ContactMe() {
             Send
           </Button>
         </Box>
+        {/*TODO add error message if sending email failed */}
+        <Snackbar
+          open={isOpen}
+          autoHideDuration={3000}
+          onClose={handleClose}
+          message="Email Sent"
+        />
       </Box>
     </>
   );
