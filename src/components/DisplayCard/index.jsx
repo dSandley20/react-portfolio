@@ -2,8 +2,9 @@ import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { mainCardStyle, cardTextStyle } from "./styles";
+import PropTypes from "prop-types";
 
-export default function DisplayCard() {
+export default function DisplayCard(props) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -17,7 +18,7 @@ export default function DisplayCard() {
           onClick={() => setIsOpen(!isOpen)}
         >
           <Typography layout={"position"} variant="h2" component={motion.h2}>
-            Testing
+            {props.title}
           </Typography>
           {isOpen && (
             <Box
@@ -27,10 +28,7 @@ export default function DisplayCard() {
               transition={{ duration: 1 }}
               sx={cardTextStyle}
             >
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reiciendis, tempora!
-              </p>
+              <p>{props.text}</p>
             </Box>
           )}
         </Box>
@@ -38,3 +36,8 @@ export default function DisplayCard() {
     </>
   );
 }
+
+DisplayCard.propTypes = {
+  title: PropTypes.string,
+  content: PropTypes.string,
+};
