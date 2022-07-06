@@ -7,7 +7,10 @@ export default function ContactMe() {
   return (
     <>
       <Box sx={container}>
-        <Editor />
+        <Editor
+          wrapperStyle={{ height: "30%" }}
+          editorStyle={{ overflowY: "scroll", height: 300 }}
+        />
       </Box>
     </>
   );
