@@ -1,4 +1,4 @@
-import { createTheme }  from '@mui/material/styles';
+import { createTheme, darken, lighten } from '@mui/material/styles';
 
 // colors are based off of the Nord VSCode theme, https://www.nordtheme.com/docs/colors-and-palettes
 // nord0-3 , used for background or text
@@ -12,13 +12,21 @@ const mainTheme = createTheme({
             variants: [
                 {
                     props: { variant: 'socialBtn' },
-                    style: {backgroundColor: '#81A1C1', textTransformation: 'none'}}
+                    style: {
+                        backgroundColor: '#88C0D0',
+                        textTransform: 'none',
+                        color: '#ECEFF4',
+                        ':hover': {
+                            backgroundColor: lighten( '#88C0D0',.1)
+                        }
+                    }
+                }
             ]
         
         }
     },
     palette : {
-        type: 'light',
+        type: 'dark',
         nord0: {
             main: '#2E3440'
         },
