@@ -2,17 +2,20 @@ import { AppBar, Box, Menu, MenuItem, Typography } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import Socials from "../Socials";
 
 export default function NavBar() {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const [currentPage, setCurrentPage] = useState("Portfolio");
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -23,11 +26,28 @@ export default function NavBar() {
     navigate(`../${page.toLowerCase()}`, { replace: true });
   };
 
+  const [width, setWidth] = useState(window.innerWidth);
+  const [isMobile, setIsMobile] = useState(false);
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
+
+  useMemo(() => {
+    setIsMobile(width <= 1000);
+  }, [width]);
+
   return (
     <>
       <Box>
-        <AppBar position="static">
-          <Toolbar>
+        <AppBar color="nord7" position="static" sx={{ height: "55px" }}>
+          <Toolbar sx={{ height: "100%" }}>
             <IconButton
               size="large"
               edge="start"
@@ -38,7 +58,9 @@ export default function NavBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography>{currentPage}</Typography>
+            <Typography sx={isMobile ? {} : { marginRight: "30px" }}>
+              {isMobile ? "" : currentPage}
+            </Typography>
             <Menu
               id="basic-menu"
               anchorEl={anchorEl}
@@ -74,6 +96,7 @@ export default function NavBar() {
                 Projects
               </MenuItem>
             </Menu>
+            <Socials isMobile={isMobile} />
           </Toolbar>
         </AppBar>
       </Box>
