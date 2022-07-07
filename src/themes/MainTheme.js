@@ -14,13 +14,13 @@ const mainTheme = createTheme({
                 {
                     props: { variant: 'socialBtn' },
                     style: {
-                        backgroundColor: '#88C0D0',
+                        backgroundColor: '#8FBCBB',
                         textTransform: 'none',
                         width: '100%',
                         height: '100%',
-                        color: '#ECEFF4',
+                        color: '#D8DEE9',
                         ':hover': {
-                            backgroundColor: lighten( '#88C0D0',.1)
+                            backgroundColor: lighten( '#8FBCBB',.1)
                         }
                     }
                 }
@@ -32,6 +32,30 @@ const mainTheme = createTheme({
                 {
                     props: { variant: 'socialItem' },
                     style: {height: '100%'}
+                }
+            ]
+        },
+        MuiTypography: {
+            variants: [
+                {
+                    props: { variant: 'navbar' },
+                    style: {
+                        marginRight: "30px",
+                        color: "#D8DEE9",
+                        height: '100%',
+                        paddingTop: '35px'
+                    }
+                }
+            ]
+        },
+        MuiIconButton: {
+            variants: [
+                {
+                    props: { variant: 'navbar' },
+                    style: {
+                        height: "100%",
+                        marginBottom: "8px"
+                    }
                 }
             ]
         }
