@@ -33,7 +33,7 @@ export default function Socials(props) {
         </Box>
         <Box sx={socialButton}>
           <Button
-            sx={buttonStyle}
+            variant="socialBtn"
             onClick={() => {
               urlHandler(githubUrl);
             }}
@@ -44,7 +44,7 @@ export default function Socials(props) {
         </Box>
         <Box sx={socialButton}>
           <Button
-            sx={buttonStyle}
+            variant="socialBtn"
             onClick={() => {
               urlHandler(linkedinUrl);
             }}
