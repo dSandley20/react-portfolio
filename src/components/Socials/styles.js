@@ -15,9 +15,14 @@ const iconStyle = {
     marginRight: '10px'
 }
 
+const iconStyleMobile = {
+    paddingLeft: '0px'
+}
+
 module.exports = {
     container,
     socialButton,
     buttonStyle,
-    iconStyle
+    iconStyle,
+    iconStyleMobile
 }
