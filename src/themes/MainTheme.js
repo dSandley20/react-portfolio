@@ -20,7 +20,7 @@ const mainTheme = createTheme({
                         height: '100%',
                         color: '#D8DEE9',
                         ':hover': {
-                            backgroundColor: lighten( '#8FBCBB',.1)
+                            backgroundColor: darken( '#8FBCBB',.1)
                         }
                     }
                 }
@@ -55,6 +55,32 @@ const mainTheme = createTheme({
                     style: {
                         height: "100%",
                         marginBottom: "8px"
+                    }
+                }
+            ]
+        },
+        MuiMenuItem: {
+            variants: [
+                {
+                    props: { variant: 'navbar' },
+                    style: {
+                        backgroundColor: "#8FBCBB",
+                        color: "#D8DEE9",
+                        ':hover': {
+                            backgroundColor: darken( '#8FBCBB',.1)
+                        }
+                    }
+                }
+            ]
+        },
+        MuiMenu: {
+            variants: [
+                {
+                    props: { variant: 'navbar' },
+                    style: {
+                        "& .MuiPaper-root": {
+                            backgroundColor: "#8FBCBB"
+                          }
                     }
                 }
             ]

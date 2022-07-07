@@ -67,12 +67,13 @@ export default function NavBar() {
               anchorEl={anchorEl}
               open={open}
               onClose={handleClose}
-              color="white"
+              variant="navbar"
               MenuListProps={{
                 "aria-labelledby": "basic-button",
               }}
             >
               <MenuItem
+                variant="navbar"
                 onClick={() => {
                   handleClose();
                   changeText("Portfolio");
@@ -81,6 +82,7 @@ export default function NavBar() {
                 Portfolio
               </MenuItem>
               <MenuItem
+                variant="navbar"
                 onClick={() => {
                   handleClose();
                   changeText("Blogs");
@@ -89,6 +91,7 @@ export default function NavBar() {
                 Blogs
               </MenuItem>
               <MenuItem
+                variant="navbar"
                 onClick={() => {
                   handleClose();
                   changeText("Projects");
