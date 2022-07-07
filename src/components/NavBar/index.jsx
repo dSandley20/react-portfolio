@@ -51,14 +51,15 @@ export default function NavBar() {
             <IconButton
               size="large"
               edge="start"
-              color="inherit"
               aria-label="menu"
               sx={{ mr: 2 }}
+              variant={isMobile ? "" : "navbar"}
               onClick={handleClick}
+              color="nord4"
             >
               <MenuIcon />
             </IconButton>
-            <Typography sx={isMobile ? {} : { marginRight: "30px" }}>
+            <Typography color="nord4" variant={isMobile ? "" : "navbar"}>
               {isMobile ? "" : currentPage}
             </Typography>
             <Menu
