@@ -4,6 +4,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { useState, useEffect, useMemo } from "react";
+import PropTypes from "prop-types";
 
 export default function Socials(props) {
   const twitterUrl = "https://twitter.com/NotBluePost";
@@ -15,60 +16,55 @@ export default function Socials(props) {
     window.open(url, "_blank");
   };
 
-  const [width, setWidth] = useState(window.innerWidth);
-  const [isMobile, setIsMobile] = useState(false);
-
-  function handleWindowSizeChange() {
-    setWidth(window.innerWidth);
-  }
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowSizeChange);
-    return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
-    };
-  }, []);
-
-  useMemo(() => {
-    setIsMobile(width <= 768);
-  }, [width]);
-
   return (
     <>
-      <Grid container justifyContent="space-evenly" alignItems="center">
-        <Grid item xs>
+      <Grid
+        container
+        justifyContent="space-evenly"
+        alignItems="center"
+        sx={{ height: "100%" }}
+      >
+        <Grid item xs variant="socialItem">
           <Button
             variant="socialBtn"
+            sx={props.isMobile ? "" : { height: "85%" }}
             onClick={() => {
               urlHandler(twitterUrl);
             }}
           >
-            <TwitterIcon sx={isMobile ? iconStyleMobile : iconStyle} />
-            {isMobile ? "" : "Twitter"}
+            <TwitterIcon sx={props.isMobile ? iconStyleMobile : iconStyle} />
+            {props.isMobile ? "" : "Twitter"}
           </Button>
         </Grid>
-        <Grid item xs>
+        <Grid item xs variant="socialItem">
           <Button
             variant="socialBtn"
+            sx={props.isMobile ? "" : { height: "85%" }}
             onClick={() => {
               urlHandler(githubUrl);
             }}
           >
-            <GitHubIcon sx={isMobile ? iconStyleMobile : iconStyle} />
-            {isMobile ? "" : "Github"}
+            <GitHubIcon sx={props.isMobile ? iconStyleMobile : iconStyle} />
+            {props.isMobile ? "" : "Github"}
           </Button>
         </Grid>
-        <Grid item xs>
+        <Grid item xs variant="socialItem">
           <Button
             variant="socialBtn"
+            sx={props.isMobile ? "" : { height: "85%" }}
             onClick={() => {
               urlHandler(linkedinUrl);
             }}
           >
-            <LinkedInIcon sx={isMobile ? iconStyleMobile : iconStyle} />
-            {isMobile ? "" : "LinkedIn"}
+            <LinkedInIcon sx={props.isMobile ? iconStyleMobile : iconStyle} />
+            {props.isMobile ? "" : "LinkedIn"}
           </Button>
         </Grid>
       </Grid>
     </>
   );
 }
+
+Socials.propTypes = {
+  isMobile: PropTypes.bool,
+};
