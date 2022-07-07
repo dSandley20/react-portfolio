@@ -12,6 +12,7 @@ const mainTheme = createTheme({
         highlight: {
             main: "#FFFFFFF"
         }
+        
     }
 })
 

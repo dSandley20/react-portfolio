@@ -26,7 +26,7 @@ export default function NavBar() {
   return (
     <>
       <Box>
-        <AppBar position="static" color="accent">
+        <AppBar position="static">
           <Toolbar>
             <IconButton
               size="large"
@@ -38,7 +38,7 @@ export default function NavBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography color="highlight">{currentPage}</Typography>
+            <Typography>{currentPage}</Typography>
             <Menu
               id="basic-menu"
               anchorEl={anchorEl}
