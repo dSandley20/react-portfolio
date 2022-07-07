@@ -18,16 +18,11 @@ export default function Socials(props) {
 
   return (
     <>
-      <Grid
-        container
-        justifyContent="space-evenly"
-        alignItems="center"
-        sx={{ height: "100%" }}
-      >
-        <Grid item xs variant="socialItem">
+      <Grid container spacing={1} sx={{ height: "100%" }}>
+        <Grid item variant="socialItem">
           <Button
             variant="socialBtn"
-            sx={props.isMobile ? "" : { height: "85%" }}
+            sx={props.isMobile ? "" : { height: "90%" }}
             onClick={() => {
               urlHandler(twitterUrl);
             }}
@@ -36,10 +31,10 @@ export default function Socials(props) {
             {props.isMobile ? "" : "Twitter"}
           </Button>
         </Grid>
-        <Grid item xs variant="socialItem">
+        <Grid item variant="socialItem">
           <Button
             variant="socialBtn"
-            sx={props.isMobile ? "" : { height: "85%" }}
+            sx={props.isMobile ? "" : { height: "90%" }}
             onClick={() => {
               urlHandler(githubUrl);
             }}
@@ -48,10 +43,10 @@ export default function Socials(props) {
             {props.isMobile ? "" : "Github"}
           </Button>
         </Grid>
-        <Grid item xs variant="socialItem">
+        <Grid item variant="socialItem">
           <Button
             variant="socialBtn"
-            sx={props.isMobile ? "" : { height: "85%" }}
+            sx={props.isMobile ? "" : { height: "90%" }}
             onClick={() => {
               urlHandler(linkedinUrl);
             }}
