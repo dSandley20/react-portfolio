@@ -1,5 +1,5 @@
-import { Box, IconButton } from "@mui/material";
-import { container, socialButton } from "./styles";
+import { Box, Button } from "@mui/material";
+import { container, socialButton, buttonStyle, iconStyle } from "./styles";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -14,38 +14,43 @@ export default function Socials(props) {
     window.open(url, "_blank");
   };
 
+  //TODO give buttons a background color, and change text color
+
   return (
     <>
       <Box sx={container}>
         <Box sx={socialButton}>
-          <IconButton
+          <Button
+            sx={buttonStyle}
             onClick={() => {
               urlHandler(twitterUrl);
             }}
           >
-            <TwitterIcon />
-          </IconButton>
-          {twitterUrl}
+            <TwitterIcon sx={iconStyle} />
+            Twitter
+          </Button>
         </Box>
         <Box sx={socialButton}>
-          <IconButton
+          <Button
+            sx={buttonStyle}
             onClick={() => {
               urlHandler(githubUrl);
             }}
           >
-            <GitHubIcon />
-          </IconButton>
-          {githubUrl}
+            <GitHubIcon sx={iconStyle} />
+            GitHub
+          </Button>
         </Box>
         <Box sx={socialButton}>
-          <IconButton
+          <Button
+            sx={buttonStyle}
             onClick={() => {
               urlHandler(linkedinUrl);
             }}
           >
-            <LinkedInIcon />
-          </IconButton>
-          {linkedinUrl}
+            <LinkedInIcon sx={iconStyle} />
+            LinkedIn
+          </Button>
         </Box>
       </Box>
     </>
