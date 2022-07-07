@@ -15,6 +15,7 @@ const mainTheme = createTheme({
                     style: {
                         backgroundColor: '#88C0D0',
                         textTransform: 'none',
+                        width: '35%',
                         color: '#ECEFF4',
                         ':hover': {
                             backgroundColor: lighten( '#88C0D0',.1)
