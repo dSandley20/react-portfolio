@@ -34,6 +34,8 @@ export default function ContactMe() {
     setIsOpen(false);
   };
 
+  // TODO redesign this whole form to be more modern use yup/formik
+  // name, email , subject, body
   return (
     <>
       <Box sx={container}>
