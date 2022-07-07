@@ -22,7 +22,7 @@ export default function Socials(props) {
       <Box sx={container}>
         <Box sx={socialButton}>
           <Button
-            sx={buttonStyle}
+            variant="socialBtn"
             onClick={() => {
               urlHandler(twitterUrl);
             }}

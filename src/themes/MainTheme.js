@@ -7,6 +7,16 @@ import { createTheme }  from '@mui/material/styles';
 // nord11-15, used for highlights
 
 const mainTheme = createTheme({
+    components: {
+        MuiButton: {
+            variants: [
+                {
+                    props: { variant: 'socialBtn' },
+                    style: {backgroundColor: '#81A1C1', textTransformation: 'none'}}
+            ]
+        
+        }
+    },
     palette : {
         type: 'light',
         nord0: {
