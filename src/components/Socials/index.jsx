@@ -15,6 +15,7 @@ export default function Socials(props) {
   };
 
   //TODO give buttons a background color, and change text color
+  //TODO put buttons into a grid layout so they can be centered in the footer
 
   return (
     <>
