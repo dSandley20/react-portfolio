@@ -1,3 +1,4 @@
+import { Grid } from '@mui/material';
 import { createTheme, darken, lighten } from '@mui/material/styles';
 
 // colors are based off of the Nord VSCode theme, https://www.nordtheme.com/docs/colors-and-palettes
@@ -16,6 +17,7 @@ const mainTheme = createTheme({
                         backgroundColor: '#88C0D0',
                         textTransform: 'none',
                         width: '35%',
+                        height: '100%',
                         color: '#ECEFF4',
                         ':hover': {
                             backgroundColor: lighten( '#88C0D0',.1)
@@ -24,6 +26,14 @@ const mainTheme = createTheme({
                 }
             ]
         
+        },
+        MuiGrid: {
+            variants: [
+                {
+                    props: { variant: 'socialItem' },
+                    style: {height: '100%'}
+                }
+            ]
         }
     },
     palette : {
