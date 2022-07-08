@@ -1,6 +1,8 @@
 import NavBar from "../components/NavBar";
 import ContactMe from "../components/ContactMe";
+import ProjectScroll from "../components/ProjectScroll";
 import React, { useState, useEffect, useMemo } from "react";
+import projects from "../utils/fakeProjects";
 
 export default function KitchenSink() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -23,6 +25,7 @@ export default function KitchenSink() {
   return (
     <>
       <NavBar isMobile={isMobile} />
+      <ProjectScroll isMobile={isMobile} projects={projects} />
       <ContactMe isMobile={isMobile} />
       {/* 
      
