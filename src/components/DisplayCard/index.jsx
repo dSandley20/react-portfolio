@@ -9,7 +9,7 @@ export default function DisplayCard(props) {
 
   return (
     <>
-      <Box color="accent">
+      <Box>
         <Box
           transition={{ layout: { duration: 0.5 } }}
           layout={true}
