@@ -22,7 +22,7 @@ export default function Socials(props) {
         <Grid item variant="socialItem">
           <Button
             variant="socialBtn"
-            sx={props.isMobile ? "" : { height: "90%" }}
+            sx={props.isMobile ? "" : { height: "85%" }}
             onClick={() => {
               urlHandler(twitterUrl);
             }}
@@ -34,7 +34,7 @@ export default function Socials(props) {
         <Grid item variant="socialItem">
           <Button
             variant="socialBtn"
-            sx={props.isMobile ? "" : { height: "90%" }}
+            sx={props.isMobile ? "" : { height: "85%" }}
             onClick={() => {
               urlHandler(githubUrl);
             }}
@@ -46,7 +46,7 @@ export default function Socials(props) {
         <Grid item variant="socialItem">
           <Button
             variant="socialBtn"
-            sx={props.isMobile ? "" : { height: "90%" }}
+            sx={props.isMobile ? "" : { height: "85%" }}
             onClick={() => {
               urlHandler(linkedinUrl);
             }}
