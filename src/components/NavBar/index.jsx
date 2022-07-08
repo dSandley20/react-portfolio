@@ -5,8 +5,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Socials from "../Socials";
+import PropTypes from "prop-types";
 
-export default function NavBar() {
+export default function NavBar(props) {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const [currentPage, setCurrentPage] = useState("Portfolio");
@@ -26,23 +27,6 @@ export default function NavBar() {
     navigate(`../${page.toLowerCase()}`, { replace: true });
   };
 
-  const [width, setWidth] = useState(window.innerWidth);
-  const [isMobile, setIsMobile] = useState(false);
-
-  function handleWindowSizeChange() {
-    setWidth(window.innerWidth);
-  }
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowSizeChange);
-    return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
-    };
-  }, []);
-
-  useMemo(() => {
-    setIsMobile(width <= 1000);
-  }, [width]);
-
   return (
     <>
       <Box>
@@ -53,14 +37,14 @@ export default function NavBar() {
               edge="start"
               aria-label="menu"
               sx={{ mr: 2 }}
-              variant={isMobile ? "" : "navbar"}
+              variant={props.isMobile ? "" : "navbar"}
               onClick={handleClick}
               color="nord4"
             >
               <MenuIcon />
             </IconButton>
-            <Typography color="nord4" variant={isMobile ? "" : "navbar"}>
-              {isMobile ? "" : currentPage}
+            <Typography color="nord4" variant={props.isMobile ? "" : "navbar"}>
+              {props.isMobile ? "" : currentPage}
             </Typography>
             <Menu
               id="basic-menu"
@@ -100,10 +84,14 @@ export default function NavBar() {
                 Projects
               </MenuItem>
             </Menu>
-            <Socials isMobile={isMobile} />
+            <Socials isMobile={props.isMobile} />
           </Toolbar>
         </AppBar>
       </Box>
     </>
   );
 }
+
+NavBar.propTypes = {
+  isMobile: PropTypes.bool,
+};
