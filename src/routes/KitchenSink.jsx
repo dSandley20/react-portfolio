@@ -3,8 +3,10 @@ import NavBar from "../components/NavBar";
 export default function KitchenSink() {
   return (
     <>
-      <NavBar />
+       <NavBar />
+       <ContactMe />
       {/* 
+     
       <Grid container spacing={4}>
         <Grid item xs={4} sx={{ width: "30%" }}>
           <DisplayCard
@@ -32,7 +34,7 @@ export default function KitchenSink() {
         </Grid>
       </Grid> */}
 
-      {/* <ContactMe /> */}
+      {/*  */}
     </>
   );
 }
