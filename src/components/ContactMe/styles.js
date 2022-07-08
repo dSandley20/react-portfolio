@@ -1,6 +1,5 @@
 const containerDesktop = {
     borderRadius: "1rem",
-    height: '100px',
     borderColor: '#8FBCBB',
     marginTop: '10px !important',
     borderStyle: 'solid',
@@ -12,7 +11,6 @@ const containerDesktop = {
 
 const containerMobile = {
     borderRadius: "1rem",
-    height: '100px',
     borderColor: '#8FBCBB',
     marginTop: '10px !important',
     borderStyle: 'solid',
