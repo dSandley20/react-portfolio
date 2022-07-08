@@ -1,11 +1,29 @@
 import NavBar from "../components/NavBar";
 import ContactMe from "../components/ContactMe";
+import React, { useState, useEffect, useMemo } from "react";
 
 export default function KitchenSink() {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [isMobile, setIsMobile] = useState(false);
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
+
+  useMemo(() => {
+    setIsMobile(width <= 1000);
+  }, [width]);
+
   return (
     <>
-       <NavBar />
-       <ContactMe />
+      <NavBar isMobile={isMobile} />
+      <ContactMe isMobile={isMobile} />
       {/* 
      
       <Grid container spacing={4}>
