@@ -1,11 +1,12 @@
 import { Box } from "@mui/system";
 import { containerDesktop, containerMobile } from "./styles";
 import React, { useState } from "react";
-import { Button, Snackbar, IconButton, Typography, Grid } from "@mui/material";
+import { Button, Snackbar, Typography } from "@mui/material";
 import { Formik, Form, Field } from "formik";
-import { TextField } from "formik-mui";
 import CustomTextField from "../common/CustomTextField";
+import CustomMultiLineField from "../common/CustomMultiLineField";
 import PropTypes from "prop-types";
+import SendIcon from "@mui/icons-material/Send";
 
 export default function ContactMe(props) {
   // TODO redesign this whole form to be more modern use yup/formik
@@ -50,12 +51,49 @@ export default function ContactMe(props) {
         >
           {({ submitForm, isSubmitting }) => (
             <Form style={{ padding: "10px" }}>
-              <Field
-                component={CustomTextField}
-                name="name"
-                type="string"
-                label="Name"
-              />
+              <Box>
+                <Field
+                  component={CustomTextField}
+                  name="name"
+                  type="string"
+                  label="Name"
+                  style={{ width: "48%", float: "left" }}
+                />
+                <Field
+                  component={CustomTextField}
+                  name="email"
+                  type="email"
+                  label="Email"
+                  style={{ float: "right", width: "48%" }}
+                />
+              </Box>
+
+              <Box>
+                <Field
+                  component={CustomTextField}
+                  name="subject"
+                  type="string"
+                  label="Subject"
+                  style={{ width: "100%", marginTop: "20px" }}
+                />
+              </Box>
+
+              <br />
+              <Box>
+                <Field
+                  component={CustomMultiLineField}
+                  name="message"
+                  type="string"
+                  label="Message"
+                  style={{ width: "100%" }}
+                />
+              </Box>
+              <br />
+              <Button variant="socialBtn">
+                {" "}
+                Send
+                <SendIcon sx={{ marginLeft: "10px" }} />
+              </Button>
             </Form>
           )}
         </Formik>
