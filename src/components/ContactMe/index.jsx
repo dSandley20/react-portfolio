@@ -9,8 +9,7 @@ import PropTypes from "prop-types";
 import SendIcon from "@mui/icons-material/Send";
 
 export default function ContactMe(props) {
-  // TODO redesign this whole form to be more modern use yup/formik
-  // name, email , subject, body
+  // TODO hook up email endpoint
   return (
     <>
       <Box sx={props.isMobile ? containerMobile : containerDesktop}>
