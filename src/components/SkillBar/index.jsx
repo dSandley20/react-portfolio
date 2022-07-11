@@ -1,10 +1,21 @@
 import { containerDesktop, containerMobile } from "./styles";
 import { Box, Stack } from "@mui/material";
 import Skill from "./Skill";
+import { useState } from "react";
 
 export default function SkillBar(props) {
   //TODO pass in technologies
-  console.log(props);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedSkill, setSelectedSkill] = useState(null);
+
+  const clickSkill = (skill) => {
+    setSelectedSkill(skill);
+  };
+
+  const clearSkill = () => {
+    setSelectedSkill(null);
+  };
 
   return (
     <>
