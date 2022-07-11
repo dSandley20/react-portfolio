@@ -5,7 +5,6 @@ const containerDesktop = {
     borderStyle: 'solid',
     borderWidth: '2px',
     width: '99%',
-   
     position: 'absolute',
     margin: '0 auto',
     boxShadow: "0px 10px 30px rgb(0,0,0,0.5)",
@@ -18,7 +17,6 @@ const containerMobile = {
     borderStyle: 'solid',
     borderWidth: '2px',
     width: '99%',
-    
     position: 'absolute',
     margin: '0 auto',
     boxShadow: "0px 10px 30px rgb(0,0,0,0.5)",
