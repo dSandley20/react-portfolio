@@ -9,12 +9,14 @@ export default function Skill(props) {
               backgroundColor: "black",
               width: "15%",
               color: "white",
+              borderRadius: "1rem",
             }
           : {
               height: "100%",
               backgroundColor: "red",
               width: "7%",
               color: "white",
+              borderRadius: "1rem",
               "&:hover": {
                 transform: "scale(1.5)",
               },
