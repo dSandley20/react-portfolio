@@ -1,7 +1,8 @@
-import { containerDesktop, containerMobile } from "./styles";
+import { skillBarDesktop, skillBarMobile } from "./styles";
 import { Box, Stack } from "@mui/material";
 import Skill from "./Skill";
 import { useState } from "react";
+import CloseIcon from "@mui/icons-material/Close";
 
 export default function SkillBar(props) {
   //TODO pass in technologies
@@ -11,15 +12,17 @@ export default function SkillBar(props) {
 
   const clickSkill = (skill) => {
     setSelectedSkill(skill);
+    isOpen(true);
   };
 
   const clearSkill = () => {
     setSelectedSkill(null);
+    isOpen(false);
   };
 
   return (
     <>
-      <Box sx={props.isMobile ? containerMobile : containerDesktop}>
+      <Box sx={props.isMobile ? skillBarMobile : skillBarDesktop}>
         <Stack
           spacing={4}
           direction="row"
@@ -47,10 +50,19 @@ export default function SkillBar(props) {
           }}
         >
           {props.projects.map((data) => {
-            return <Skill isMobile={props.isMobile} />;
+            return (
+              <Skill
+                isMobile={props.isMobile}
+                onClick={() => {
+                  clickSkill(data);
+                }}
+              />
+            );
           })}
         </Stack>
       </Box>
+      <br />
+      <Box></Box>
     </>
   );
 }
