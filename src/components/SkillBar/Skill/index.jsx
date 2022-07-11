@@ -18,6 +18,7 @@ export default function Skill(props) {
               width: "7%",
               color: "white",
               borderRadius: "1rem",
+              cursor: "pointer",
               "&:hover": {
                 transform: "scale(1.5)",
               },
