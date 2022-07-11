@@ -1,6 +1,6 @@
 
 
-const containerDesktop = {
+const skillBarDesktop = {
     borderRadius: "1rem",
     borderColor: '#8FBCBB',
     marginTop: '10px !important',
@@ -14,7 +14,7 @@ const containerDesktop = {
    
 }
 
-const containerMobile = {
+const skillBarMobile = {
     borderRadius: "1rem",
     borderColor: '#8FBCBB',
     marginTop: '10px !important',
@@ -28,4 +28,4 @@ const containerMobile = {
    
 }
 
-module.exports = {containerDesktop, containerMobile}
+module.exports = {skillBarDesktop, skillBarMobile}
