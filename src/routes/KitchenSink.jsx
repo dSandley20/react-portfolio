@@ -25,7 +25,7 @@ export default function KitchenSink() {
 
   return (
     <>
-      <AboutMe />
+      <AboutMe isMobile={isMobile} />
       {/* 
       <NavBar isMobile={isMobile} />
       <ProjectScroll isMobile={isMobile} projects={projects} />
