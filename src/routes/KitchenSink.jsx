@@ -1,6 +1,7 @@
 import NavBar from "../components/NavBar";
 import ContactMe from "../components/ContactMe";
 import ProjectScroll from "../components/ProjectScroll";
+import AboutMe from "../components/AboutMe";
 import React, { useState, useEffect, useMemo } from "react";
 import projects from "../utils/fakeProjects";
 
@@ -24,10 +25,11 @@ export default function KitchenSink() {
 
   return (
     <>
+      <AboutMe />
+      {/* 
       <NavBar isMobile={isMobile} />
       <ProjectScroll isMobile={isMobile} projects={projects} />
       <ContactMe isMobile={isMobile} />
-      {/* 
      
       <Grid container spacing={4}>
         <Grid item xs={4} sx={{ width: "30%" }}>
