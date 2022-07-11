@@ -1,10 +1,11 @@
 import { Box, Typography } from "@mui/material";
-import { containerDesktop } from "./styles";
+import { containerDesktop, containerMobile } from "./styles";
 import TypeAnimation from "react-type-animation";
 import ReactTypingEffect from "react-typing-effect";
 import { useState, useEffect } from "react";
 import Typewriter from "typewriter-effect";
 import { SettingsEthernet } from "@mui/icons-material";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export default function AboutMe(props) {
   var text = [
@@ -18,9 +19,15 @@ export default function AboutMe(props) {
   ];
 
   const [isAnimating, setIsAnimating] = useState(false);
+  const [playAnimation, setPlayAnimation] = useState(true);
+
+  const skipAnimation = () => {
+    setPlayAnimation(!playAnimation);
+  };
+
   return (
     <>
-      <Box sx={containerDesktop}>
+      <Box sx={props.isMobile ? containerMobile : containerDesktop}>
         <Typography
           variant="h3"
           sx={{
@@ -32,21 +39,24 @@ export default function AboutMe(props) {
           About Me
         </Typography>
 
-        <Typewriter
-          autoStart={true}
-          cursor={"|"}
-          delay={5}
-          onInit={(typewriter) => {
-            typewriter
-              .typeString(text[0])
-              .callFunction(() => {
-                setIsAnimating(true);
-              })
-              .start();
-          }}
-        />
+        {playAnimation && (
+          <Typewriter
+            autoStart={true}
+            cursor={"|"}
+            delay={5}
+            onInit={(typewriter) => {
+              typewriter
+                .typeString(text[0])
+                .callFunction(() => {
+                  setIsAnimating(true);
+                  typewriter.stop();
+                })
+                .start();
+            }}
+          />
+        )}
 
-        {isAnimating && (
+        {isAnimating && playAnimation && (
           <Typewriter
             autoStart={true}
             cursor={"|"}
@@ -58,11 +68,43 @@ export default function AboutMe(props) {
                 .typeString(text[1])
                 .callFunction(() => {
                   console.log("String typed out!");
+                  typewriter.stop();
                 })
                 .start();
             }}
           />
         )}
+
+        {playAnimation == false && (
+          <Typography
+            variant="body1"
+            sx={{ padding: "10px", color: "#D8DEE9" }}
+          >
+            {text[0]}
+          </Typography>
+        )}
+        {playAnimation == false && (
+          <Typography
+            variant="body1"
+            sx={{ padding: "10px", color: "#D8DEE9" }}
+          >
+            {text[1]}
+          </Typography>
+        )}
+
+        <Typography
+          variant="body1"
+          sx={{
+            padding: "10px",
+            float: "right",
+            color: "#D8DEE9",
+            cursor: "pointer",
+          }}
+          onClick={skipAnimation}
+        >
+          {playAnimation ? "Skip" : "Reset"} Animation{" "}
+          <ArrowForwardIosIcon sx={{ height: "15px" }} />
+        </Typography>
       </Box>
     </>
   );
